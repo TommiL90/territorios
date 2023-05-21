@@ -1,13 +1,31 @@
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { territories } from '@/data/territories'
+import Link from 'next/link';
 
-const DynamicMap = dynamic(() => import('../components/Map'), { ssr: false })
+export interface ITerritory {
+  id: number;
+  title: string;
+  center: {
+      lat: number;
+      lng: number;
+  };
+  poligono: number[][];
+}
 
 export default function Home() {
   return (
     <main className=''>
-      <h1>Map</h1>
-      <DynamicMap />
+      <h1>Territorios</h1>
+      <ul>
+        {
+          territories.map((e: ITerritory) => 
+          <li key={e.id}>
+            <Link href={`/${e.id}`}>{e.title}</Link>
+          </li>
+          )
+        }
+      </ul>
     </main>
   )
 }
