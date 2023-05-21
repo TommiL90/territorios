@@ -44,7 +44,7 @@ const TerritoryPage = ({ params }: IPageProps) => {
     <div>
       <h1>{territory.title}</h1>
       <div>
-        <DynamicMap />
+        <DynamicMap key={territory.id} geolocation={territory.center} polygonCoors={territory.poligono} zoom={16} />
       </div>
     </div>
   )
