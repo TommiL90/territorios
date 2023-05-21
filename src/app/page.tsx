@@ -1,27 +1,18 @@
-import { territories } from '@/data/territories'
-import Link from 'next/link'
+import Blog from '@/components/Blog'
+import Brands from '@/components/Brands'
+import ScrollUp from '@/components/Common/ScrollUp'
 
-export interface ITerritory {
-  id: number
-  title: string
-  center: {
-    lat: number
-    lng: number
-  }
-  poligono: number[][]
-}
+import Features from '@/components/Features'
+import Initial from '@/components/Initial'
+import Pricing from '@/components/Pricing'
+
 
 export default function Home() {
   return (
-    <main className=''>
-      <h1>Territorios</h1>
-      <ul>
-        {territories.map((e: ITerritory) => (
-          <li key={e.id}>
-            <Link href={`/${e.id}`}>{e.title}</Link>
-          </li>
-        ))}
-      </ul>
+    <main>
+      <ScrollUp />
+      <Initial />
+      <Blog />
     </main>
   )
 }
